@@ -4,8 +4,12 @@
 # <codecell>
 
 import csv
+from string import zfill
+
+# <codecell>
+
 filetext = open('list.txt', 'r')
-textlist = []
+itemlist = []
 filterlist = []
 counter = 0
 
@@ -13,21 +17,22 @@ counter = 0
 
 for line in filetext:
     item = line.split()
-    #print item
-    textlist += item
+    itemlist += item
     counter = counter + 1
     if counter > 998:
+        thinglist = []
+        for item in itemlist:
+            #print string.zfill(item, 9)
+            thinglist.append(string.zfill(item, 9))
+        #filterlist += ["([BIB_DOC_ID] in ('" + "', '".join(itemlist) + "'))"]
+        filterlist += ["([BIB_DOC_CHAR] in ('" + "', '".join(thinglist) + "'))"]
+        itemlist = []
         counter = 0
-        filterlist += ["([BIB_DOC_ID] in ('" + "', '".join(textlist) + "'))"]
-        textlist = []
-
-# <codecell>
-
 filtertext = ' or '.join(filterlist)
 
 # <codecell>
 
-filtertext
+print filtertext
 
 # <codecell>
 
