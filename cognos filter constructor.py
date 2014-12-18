@@ -4,7 +4,7 @@
 # <codecell>
 
 import csv
-from string import zfill
+import string
 
 # <codecell>
 
