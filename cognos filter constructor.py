@@ -18,7 +18,7 @@ for line in filetext:
     counter = counter + 1
     if counter > 998:
         counter = 0
-        filterlist += ["[BIB_DOC_ID] in ('" + "', '".join(textlist) + "')"]
+        filterlist += ["([BIB_DOC_ID] in ('" + "', '".join(textlist) + "'))"]
         textlist = []
 
 # <codecell>
